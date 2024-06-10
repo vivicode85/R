@@ -431,7 +431,7 @@ BIBLIOGRAFÍA {data-navmenu="Menu"}
    <a href="https://www.kaggle.com/datasets/gregorut/videogamesales">Dataset</a><br>
       <a href="https://www.kaggle.com/datasets/alanpal/gaming-and-mental-health">Relación entre la salud mental y los videojuegos</a><br><br><br><br>
 <img src="C:/Users/Pato/Downloads/CGd.gif" alt="Bibliografía" style="width:35%;">
-</div><br><br><br> <b>©2024 - Sindy Viviana Vargas Gómez</b><br>  <i><a href="https://github.com/vivicode85/R/blob/1f6f906d1fe19a37c2535cd88ddbd852e06af834/Informe_Estadistico_Videojuegos_Viviana_Vargas.Rmd">source code</a></i>                
+</div><br><br><br> <b>©2024 - Sindy Viviana Vargas Gómez</b><br>  <i><a href="https://github.com/vivicode85/R/blob/1c35b038cc23338998b119c05e0ff90e33e038aa/Informe_Estadistico_Videojuegos_Viviana_Vargas.Rmd">source code</a></i>             
               
 
 
