@@ -1,13 +1,14 @@
 ---
-title: "Informe Estadístico. Videojuegos y Salud Mental"
+title: "Informe Estadístico. VIDEOJUEGOS"
 author: 
 output:
   flexdashboard::flex_dashboard:
+
     theme: 
       version: 4
       bootswatch: minty
-      
-
+      storyboard: true
+     
 ---
 
 ```{r setup, include=FALSE}
@@ -24,6 +25,7 @@ library(png)
 library(dplyr)
 library(gridExtra)
 library(conflicted)
+
 # Cargo el dataset de ventas
 PS4_GamesSales <- read_csv("C:/Users/Pato/Downloads/PS4_GamesSales.csv")
 
@@ -114,25 +116,14 @@ add_logos <- function(plot, logos, x_positions, y_position) {
 grafico_con_logos <- add_logos(grafico, logos, x_positions, y_position)
 
 
-
-```
-
-```{r}
-
-```
-
-
-```{r}
-
-
-
 ```
 
 
 
-INTRODUCCIÓN
-========================================================================
 
+
+INTRODUCCIÓN {data-navmenu="Menu"}
+====================================
 
 <center><div id='introduccion' style='margin: 20px;'>
   <h2><strong>Introducción</strong></h2><br><br><br>
@@ -146,15 +137,13 @@ En resumen, este documento ofrece una visión profunda y completa de la industri
  <img src="C:/Users/Pato/Downloads/5lER.gif" alt="Bibliografía" style="width:35%;">
 </div>
 
+
 ```{r}
 
 ```
 
-
-
-
-HISTORIA DE LOS VIDEOJUEGOS
-=============================================================
+HISTORIA DE LOS VIDEOJUEGOS {data-navmenu="Menu"}
+===================================== 
 
 <center><div id='historia' style='margin: 20px;'>
   <h2><strong>Historia de los Videojuegos</strong></h2><br><br><br>
@@ -177,16 +166,13 @@ En la década de 2000, la industria de los videojuegos experimentó una expansi�
 
 
 
+
 ```{r}
 
 ```
 
-
-
-
-FIRMAS MÁS IMPORTANTES
-======================================================================
-
+FIRMAS MÁS IMPORTANTES {data-navmenu="Menu"}
+===================================== 
 
 
 <center><div id='firmas' style='margin: 20px;'>
@@ -205,6 +191,9 @@ FIRMAS MÁS IMPORTANTES
     <b>Ubisoft</b>: Conocida por franquicias como 'Assassin's Creed' y 'Far Cry',
     ha sido una de las principales editoras y desarrolladoras de la industria.
 </div><br><br><br><br>
+
+
+
 ```{r}
 # Gráfico de firmas
 print(grafico_con_logos)
@@ -212,12 +201,8 @@ print(grafico_con_logos)
 
 ```
 
-
-
-
-
-DATASET
-=========================================================================
+DATASET VENTAS {data-navmenu="Menu"}
+====================================
 
 
 <center><div id='dataset' style='margin: 20px;'>
@@ -226,22 +211,18 @@ DATASET
  
 </div>
 
+
 ```{r}
 datatable(head(PS4_GamesSales, 10))
 ```
 
-```{r}
-
-```
-
-
-
-TOP 10 VIDEOJUEGOS MÁS VENDIDOS
-=======================================
+TOP 10 VIDEOJUEGOS MÁS VENDIDOS {data-navmenu="Menu"}
+===================================== 
 
 <div id='top10' style='margin: 20px;'>
   <h2><strong>Top 10 Videojuegos más Vendidos Globalmente</strong></h2>
 </div>
+
 
 ```{r}
 # Gráfico del top 10 de videojuegos más vendidos globalmente
@@ -252,32 +233,24 @@ top_videogames_global %>%
   e_tooltip()
 
 
-
 ```
-
-
-
 
 <div id='top10_eu' style='margin: 20px;'>
   <h2><strong>Top 10 Videojuegos más Vendidos en Europa</strong></h2>
 </div>
+
+
 ```{r}
+
 # Gráfico del top 10 de videojuegos más vendidos en Europa
 top_videogames_europe %>%
   e_chart(Game) %>%
   e_bar(Europe) %>%
   e_title( "Ventas en Europa en millones") %>%
   e_tooltip()
-```
 
-
-
-```{r}
 
 ```
-
-
-
 
 
 <div id='network_chart' style='margin: 20px;'>
@@ -318,10 +291,11 @@ e_charts(width = "100%", height = "500px") |>
 
 ```
 
-RELACIÓN ENTRE LA SALUD MENTAL Y LOS VIDEOJUEGOS
-================================================================
 
 
+
+RELACIÓN ENTRE LA SALUD MENTAL Y LOS VIDEOJUEGOS {data-navmenu="Menu"}
+========================================================================
 
 <div id='top10' style='margin: 20px;'>
   <h2><b>Datos Estadísticos - Salud Mental y los Videojuegos</b></h2>
@@ -331,16 +305,12 @@ Column {data-width=650}
 ------------------------------------------------------------
 
 ### Tabla
+
 ```{r}
 
 datatable(res)
 
-
 ```
-
-
-
-
 
 ```{r}
 
@@ -365,15 +335,14 @@ set.seed(123)  # Para reproducibilidad
 good_sample <- good_data %>% sample_n(min(n(), 200))
 bad_sample <- bad_data %>% sample_n(min(n(), 200))
 
-
-
-
 ```
 
 Column {data-width=650}
 ------------------------------------------------------------
 
 ### Feel Good
+
+
 
 ```{r}
 
@@ -393,11 +362,13 @@ ggplot(good_summary, aes(x = Age, y = Average_Playing_Hours, color = Gender)) +
 
 ```
 
+
 Column {data-width=650}
 ------------------------------------------------------------
 ### Feel Tired
 
 ```{r}
+
 # Agrupar y resumir los datos
 bad_summary <- bad_sample %>%
   group_by(Gender, Age) %>%
@@ -413,10 +384,12 @@ ggplot(bad_summary, aes(x = Age, y = Average_Playing_Hours, color = Gender)) +
 
 ```
 
+
 Column {data-width=650}
 ------------------------------------------------------------
 
 ### Feel Unmotivated
+
 
 ```{r}
 # Gráfico desmotivación
@@ -427,12 +400,12 @@ ggplot(bad_summary, aes(x = Age, y = Average_Playing_Hours, color = Gender)) +
        x = "Edad",
        y = "Horas de Juego Promedio")
 
-
 ```
 
 
-CONCLUSIONES
-===============================================================
+
+CONCLUSIONES {data-navmenu="Menu"}
+========================================================================
 
 <center><div id='conclusión' style='margin: 20px;'>
 <h2><strong>Conclusión</strong></h2><br><br><br>
@@ -446,10 +419,10 @@ Esto nos indica, que cuando se usa de manera equilibrada, los videojuegos pueden
 </div>
 
 
+BIBLIOGRAFÍA {data-navmenu="Menu"}
+========================================================================
 
 
-BIBLIOGRAFÍA
-=================================================================
 
 <center>
 <div style="margin: 20px; text-align: center;">
@@ -459,6 +432,7 @@ BIBLIOGRAFÍA
       <a href="https://www.kaggle.com/datasets/alanpal/gaming-and-mental-health">Relación entre la salud mental y los videojuegos</a><br><br><br><br>
 <img src="C:/Users/Pato/Downloads/CGd.gif" alt="Bibliografía" style="width:35%;">
 </div><br><br><br> <b>©2024 - Sindy Viviana Vargas Gómez</b><br>  <i><a href="https://github.com/vivicode85/R/blob/1f6f906d1fe19a37c2535cd88ddbd852e06af834/Informe_Estadistico_Videojuegos_Viviana_Vargas.Rmd">source code</a></i>                
+              
 
 
 
